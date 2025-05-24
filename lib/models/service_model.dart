@@ -33,7 +33,6 @@ class ServiceModel {
     };
   }
 
-  // Sample data for testing
   static List<ServiceModel> getSampleServices() {
     return [
       ServiceModel(

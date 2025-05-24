@@ -16,7 +16,6 @@ class HeaderSection extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Vinyl record graphic (left corner)
           Positioned(
             left: 0,
             bottom: 0,
@@ -26,7 +25,6 @@ class HeaderSection extends StatelessWidget {
               height: 120,
             ),
           ),
-          // Piano keys graphic (right corner)
           Positioned(
             right: 0,
             bottom: 0,
@@ -77,7 +75,7 @@ class HeaderSection extends StatelessWidget {
                   onPressed: onBookNow,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    foregroundColor: const Color(0xFF89072F),
+                    foregroundColor: const Color(0xFF690321),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
                     ),

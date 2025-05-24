@@ -66,7 +66,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            // Main content - scrollable
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
@@ -78,7 +77,6 @@ class HomeScreen extends StatelessWidget {
                       HeaderSection(onBookNow: _handleBookNow),
                       const SizedBox(height: 24),
 
-                      // Tagline
                       const Text(
                         'Hire hand-picked Pros for popular music services',
                         style: TextStyle(
@@ -88,7 +86,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
 
-                      // Services list
                       ServiceCard(
                         title: 'Music Production',
                         description: 'Custom instrumentals & film scoring',

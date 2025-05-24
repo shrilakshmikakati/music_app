@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/service_model.dart';
+
 
 class ServiceCard extends StatelessWidget {
   final String title;
@@ -31,7 +31,6 @@ class ServiceCard extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
-              // Icon with colored background
               Container(
                 width: 48,
                 height: 48,
@@ -46,7 +45,6 @@ class ServiceCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 16),
-              // Title and description
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
