@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import '../models/service_model.dart';
 
 class ServiceCard extends StatelessWidget {
-  final ServiceModel service;
+  final String title;
+  final String description;
+  final Color iconColor;
+  final IconData icon;
   final VoidCallback onTap;
 
   const ServiceCard({
     Key? key,
-    required this.service,
+    required this.title,
+    required this.description,
+    required this.iconColor,
+    required this.icon,
     required this.onTap,
   }) : super(key: key);
 
@@ -25,15 +31,28 @@ class ServiceCard extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
-              // Icon based on service type
-              _getServiceIcon(service.iconName),
+              // Icon with colored background
+              Container(
+                width: 48,
+                height: 48,
+                decoration: BoxDecoration(
+                  color: iconColor.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  icon,
+                  color: iconColor,
+                  size: 24,
+                ),
+              ),
               const SizedBox(width: 16),
+              // Title and description
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      service.title,
+                      title,
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -42,64 +61,24 @@ class ServiceCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      service.description,
+                      description,
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.7),
-                        fontSize: 14,
+                        color: Colors.grey[400],
+                        fontSize: 12,
                       ),
                     ),
                   ],
                 ),
               ),
+              // Arrow icon
               const Icon(
-                Icons.chevron_right,
+                Icons.arrow_forward_ios,
                 color: Colors.white,
+                size: 16,
               ),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _getServiceIcon(String iconName) {
-    // Map icon names to appropriate icons
-    IconData iconData;
-    Color iconColor;
-
-    switch (iconName) {
-      case 'music_production':
-        iconData = Icons.music_note;
-        iconColor = Colors.red;
-        break;
-      case 'mixing':
-        iconData = Icons.equalizer;
-        iconColor = Colors.teal;
-        break;
-      case 'lyrics':
-        iconData = Icons.edit;
-        iconColor = Colors.amber;
-        break;
-      case 'vocals':
-        iconData = Icons.mic;
-        iconColor = Colors.purple;
-        break;
-      default:
-        iconData = Icons.music_note;
-        iconColor = Colors.grey;
-    }
-
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        color: iconColor.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Icon(
-        iconData,
-        color: iconColor,
-        size: 24,
       ),
     );
   }

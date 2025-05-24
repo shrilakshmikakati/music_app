@@ -1,0 +1,102 @@
+import 'package:flutter/material.dart';
+
+class HeaderSection extends StatelessWidget {
+  final VoidCallback onBookNow;
+
+  const HeaderSection({Key? key, required this.onBookNow}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
+      decoration: BoxDecoration(
+        color: const Color(0xFF7B0033), // Deep burgundy color
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      child: Stack(
+        children: [
+          // Vinyl record graphic (left corner)
+          Positioned(
+            left: 0,
+            bottom: 0,
+            child: Image.asset(
+              'assets/vinyl.png',
+              width: 120,
+              height: 120,
+            ),
+          ),
+          // Piano keys graphic (right corner)
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: Image.asset(
+              'assets/keyboard.png',
+              width: 120,
+              height: 80,
+            ),
+          ),
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'Claim your',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'Free Demo',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 8),
+                const Text(
+                  'for custom Music Production',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: onBookNow,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: const Color(0xFF89072F),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    elevation: 0,
+                  ),
+                  child: const Text(
+                    'Book Now',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

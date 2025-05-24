@@ -9,9 +9,8 @@ class ServicesRepository {
       final QuerySnapshot snapshot = await _firestore.collection('services').get();
 
       return snapshot.docs.map((doc) {
-        return ServiceModel.fromMap(
-          doc.data() as Map<String, dynamic>,
-          doc.id,
+        return ServiceModel.fromJson(
+            doc.data() as Map<String, dynamic>
         );
       }).toList();
     } catch (e) {

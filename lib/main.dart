@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:provider/provider.dart';
-import 'view_models/services_view_model.dart';
-import 'views/home_screen.dart';
+import 'package:flutter/services.dart';
+import 'screens/home_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.light,
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -15,18 +19,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ServicesViewModel(),
-      child: MaterialApp(
-        title: 'Music Services App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: const Color(0xFFB30046),
-          scaffoldBackgroundColor: const Color(0xFF121212),
-          fontFamily: 'Roboto',
-        ),
-        home: const HomeScreen(),
+    return MaterialApp(
+      title: 'Music Production Services',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: const Color(0xFFB30E41),
+        scaffoldBackgroundColor: Colors.black,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
+        ).apply(bodyColor: Colors.white),
       ),
+      home: const HomeScreen(),
     );
   }
 }
