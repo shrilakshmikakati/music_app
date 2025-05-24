@@ -9,9 +9,9 @@ class HeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
+      padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
       decoration: BoxDecoration(
-        color: const Color(0xFF7B0033), // Deep burgundy color
+        color: const Color(0xFF690321), // Deep burgundy color
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Stack(
@@ -79,12 +79,13 @@ class HeaderSection extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 12),
                     elevation: 0,
                   ),
                   child: const Text(
                     'Book Now',
                     style: TextStyle(
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
